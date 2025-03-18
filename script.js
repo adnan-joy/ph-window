@@ -52,12 +52,16 @@ const displayWords=(words)=>{
     wordsContainer.classList.add("grid","grid-cols-3","gap-8","p-8");
 
     for (const word of words){
+        const wordId=word.id;
         const wordName=word.word;
         const wordMeaning=word.meaning;
         const wordPro=word.pronunciation;
         const wordBox=document.createElement('div');
         wordBox.classList.add('word-box',"h-full","bg-[#EEF]","rounded-xl","pt-16","pb-10","px-8","space-y-5");
 
+        const wordsId = document.createElement('p');
+        wordsId.innerText = wordId;
+        wordsId.classList.add('hidden');
 
         const wordsName= document.createElement('h4');
         wordsName.innerText = wordName;
@@ -72,10 +76,8 @@ const displayWords=(words)=>{
             wordMP.innerText = `"অর্থ নেই / ${wordPro}"`;
         else
             wordMP.innerText = `"${wordMeaning} / ${wordPro}"`;
-
         
         
-
         const wordIcons = document.createElement('div');
         wordIcons.classList.add('flex', 'justify-between');
         wordIcons.innerHTML = `
@@ -86,7 +88,7 @@ const displayWords=(words)=>{
                 `;
 
 
-        wordBox.append(wordsName, meanPro, wordMP,wordIcons);
+        wordBox.append(wordsId, wordsName, meanPro, wordMP,wordIcons);
         wordsContainer.appendChild(wordBox);
         
     }
@@ -112,15 +114,56 @@ const noWordError = () => {
 document.getElementById('words-container').addEventListener('click', function(event){
     if (event.target.classList.contains('fa-circle-info'))
     {
-        console.log(event.target.parentNode.parentNode.firstChild.innerText);
-        fetch(`https://openapi.programming-hero.com/api/word/${event.target.parentNode.parentNode.firstChild.innerText}`)
+        const wordId = event.target.parentNode.parentNode.firstChild;
+        fetch(`https://openapi.programming-hero.com/api/word/${wordId.innerText}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            showWordDetails(data.data);
         })
     }
 })
 
+const showWordDetails = (word) => {
+    const synonymsContainer = document.createElement('div');
+    synonymsContainer.classList.add('flex', 'gap-4');
+    if (word.synonyms)
+    {
+        for (const synonym of word.synonyms)
+        {
+            const synonymEl = document.createElement('h6');
+            synonymEl.innerText = synonym;
+            synonymEl.classList.add('font-bangla', 'text-xl', 'bg-blue-100', 'px-5', 'py-2', 'rounded-lg', 'border', 'border-[#DDD]');
+            synonymsContainer.appendChild(synonymEl);
+        }
+    }
+    const modal = document.createElement('dialog');
+    modal.classList.add('modal', 'bg-[#DDDDFF90]', 'p-6', 'rounded-xl', 'space-y-6', 'backdrop-blur');
+    modal.innerHTML = `
+    <div class="border-2 border-[#EEE7] rounded-xl p-6 transition-all space-y-8">
+        <h2 class="text-4xl font-semibold font-english">${word.word} (<span class="font-bangla"><span class="fas fa-microphone-lines"></span> : ${word.pronunciation}</span>)</h2>
+        <div class="space-y-3">
+            <h4 class="text-2xl font-semibold font-english">Meaning</h4>
+            <h4 class="text-2xl font-bangla">${word.meaning ? word.meaning : "অর্থ পাওয়া যায়নি"}</h4>
+        </div>
+        <div class="space-y-3">
+            <h4 class="text-2xl font-semibold font-english">Example</h4>
+            <h4 class="text-2xl font-english">${word.sentence}</h4>
+        </div>
+        <div class="space-y-3" id="synonyms-container">
+            <h4 class="text-2xl font-semibold font-bangla">সমার্থক শব্দ গুলো</h4>
+        </div>
+    </div>
+    <form method="DIALOG" class="transition-all">
+        <button type="submit" class="bg-primary text-[#E0E7FF] border border-primary hover:bg-inherit hover:text-primary outline-none font-english px-8 py-2 rounded-xl active:bg-indigo-200 text-2xl">Complete Learning</button>
+    </form>
+    `;
+    modal.querySelector('#synonyms-container').appendChild(synonymsContainer);
+    document.body.appendChild(modal);
+    modal.showModal();
+    modal.addEventListener('close', function(){
+        delete document.body.removeChild(modal);
+    })
+}
 
 
 // Task-5
