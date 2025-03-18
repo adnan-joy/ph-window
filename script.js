@@ -109,7 +109,17 @@ const noWordError = () => {
 
 // Task-4
 
-
+document.getElementById('words-container').addEventListener('click', function(event){
+    if (event.target.classList.contains('fa-circle-info'))
+    {
+        console.log(event.target.parentNode.parentNode.firstChild.innerText);
+        fetch(`https://openapi.programming-hero.com/api/word/${event.target.parentNode.parentNode.firstChild.innerText}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+    }
+})
 
 
 
@@ -125,19 +135,17 @@ document.querySelector('#log-form button').addEventListener('click', function(ev
 })
 
 const LoginUser = (username, password) => {
-    console.log(username, password);
-    
     if (username === '')
-        window.alert("Please enter the Username.");
+        alert("Please enter the Username.");
     else if (password !== "123456")
-        window.alert("Please enter the correct password.");
+        alert("Please enter the correct password.");
     else
     {
         document.getElementsByTagName('header')[0].classList.remove('hidden');
         document.getElementById('banner').classList.add('hidden');
         document.getElementById('vocab').classList.remove('hidden');
         document.getElementById('faq').classList.remove('hidden');
-        window.alert("Successfully logged in :D");
+        alert("Successfully logged in :D");
     }
 }
 

@@ -1,49 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth" data-bs-theme="light">
+<html class="scroll-smooth" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="icon" href="./assets/logo.png" type="image/x-icon">
-        <!-- DaisyUI CDN -->
-        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
-
-        
-        <!--! Tailwind CDN -->
-        <script src="https://cdn.tailwindcss.com"></script>
-        <!--! Font Awesome CDN -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-        
-
-        <!--! Google Fonts CDN -->
-        <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-        <title>English Janala</title>
-        <style>
-            code {
-                padding-inline: 0.25rem;
-                background-color: #FFFA;
-                color: #422AD5;
-                border-radius: 0.25rem;
-            }
-        </style>
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        colors: {
-                            primary: '#422AD5',
-                            
-                            secondary: '#00BCFF'
-                        },
-                        fontFamily: {
-                            english: ['Poppins', 'sans-serif'],
-                            bangla: ['Hind Siliguri', 'sans-serif']
-                        }
+    <!-- DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <!--! Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--! Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <!--! Google Fonts CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>English Janala</title>
+    <style>
+        code {
+            padding-inline: 0.25rem;
+            background-color: #FFFA;
+            color: #422AD5;
+            border-radius: 0.25rem;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#422AD5',
+                        
+                        secondary: '#00BCFF'
+                    },
+                    fontFamily: {
+                        english: ['Poppins', 'sans-serif'],
+                        bangla: ['Hind Siliguri', 'sans-serif']
                     }
                 }
             }
-        </script>
-
+        }
+    </script>
 </head>
 <body class="bg-white">
     <header class=" py-3 border-b border-[#C6BDBD] bg-[#F8F8F887] w-full fixed top-0 left-0 backdrop-blur z-[5] hidden">
@@ -56,18 +50,18 @@
             </div>
             <div class="space-x-4" id="nav-btn">
                 <a href="#faq">
-                    <button type="button" class="font-semibold font-english border border-primary rounded px-4 py-2 text-primary hover:bg-primary hover:text-white">
+                    <button type="button" class="font-semibold font-english border border-primary rounded px-4 py-2 text-primary hover:bg-primary hover:text-white transition-colors">
                         <span class="fas fa-circle-question mr-1"></span> FAQ
                     </button>
                 </a>
                 <a href="#vocab">
-                    <button type="button" class="font-semibold font-english border border-primary rounded px-4 py-2 text-primary hover:bg-primary hover:text-white">
+                    <button type="button" class="font-semibold font-english border border-primary rounded px-4 py-2 text-primary hover:bg-primary hover:text-white transition-colors">
                         <span class="fa-solid fa-book-open mr-1"></span> Learn
                     </button>
                 </a>
 
                 <a href="">
-                    <button type="button" class="font-semibold font-english border border-primary rounded px-4 py-2 text-primary hover:bg-primary hover:text-white">
+                    <button type="button" class="font-semibold font-english border border-primary rounded px-4 py-2 text-primary hover:bg-primary hover:text-white transition-colors">
                         <span class="fa-solid fa-arrow-right-from-bracket mr-1"></span> Logout
                     </button>
                 </a>
@@ -77,30 +71,29 @@
 
     <main class="space-y-48 mx-20">
         <!-- Banner section -->
-        <section class="flex justify-between gap-56 items-center" id="banner">
-            <div class="w-3/5">
+        <section class="flex justify-between items-center" id="banner">
+            <div class="w-3/4">
                 <h1 class="font-bold text-5xl font-english"><span class="text-secondary">English</span> is Easy!!</h1>
-                <p class="font-medium text-2xl mt-6 text-gray-700 font-bangla">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের <span class="font-english">Interactive Lessons</span> আপনাকে নিয়ে যাবে অন্য একটি <span class="font-english">Level</span> এ</p>
+                <p class="font-medium text-2xl mt-6 text-gray-700 font-bangla w-2/3">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের <span class="font-english">Interactive Lessons</span> আপনাকে নিয়ে যাবে অন্য একটি <span class="font-english">Level</span> এ</p>
 
                 <form class="mt-6 flex flex-col items-start space-y-4" id="log-form">
                     <input type="text" name="username" placeholder="Enter Your Username" class="w-72 px-3 py-2 font-english rounded-md outline-none bg-#DDE border border-slate-400" required>
                     <input type="password" name="password" placeholder="Enter Your Password (123456)" class="w-72 px-3 py-2 font-english rounded-md outline-none bg-#DDE border border-slate-400" required>
-                    <button type="submit" class="btn bg-primary text-white px-3 py-2 rounded-md font-semibold text-lg hover:bg-blue-950">Get Started</button>
+                    <button type="submit" class="btn bg-primary text-white px-4 py-2 rounded-md font-semibold text-lg hover:bg-blue-950">Get Started</button>
                 </form>
             </div>
             <div>
-                <img class="" src="./assets/hero-student.png" alt="">
+                <img class="w-11/12" src="./assets/hero-student.png" alt="">
             </div>
         </section>
 
         <!-- Vocabulary Section -->
-        <section class="hidden pt-28" id="vocab">
+        <section class="hidden pt-24" id="vocab">
             <h2 class="font-bold text-4xl font-english text-center mb-4"><span class="text-secondary">Let's</span> Learn Vocabularies</h2>
             <!-- Vocab container main -->
             <div id="lessons-container" class="flex justify-center items-center gap-5 mb-10"></div>
 
             <div class="bg-[#F8F8F8] text-center rounded-md py-16" id="words-container">
-                
                 <p class="font-normal text-xs mb-4 font-bangla text-[#79716B]">আপনি এখনো কোন Lesson Select করেন ন</p>
                 <h4 class="font-medium text-4xl pb-16 font-bangla text-[#292524]">একটি Lesson Select করুন।</h4>
             </div>
@@ -238,11 +231,11 @@
 
             <div class="content-end space-y-2">
                 <p class="">Follow Us</p>
-                <div class="inline-flex gap-6 text-xl">
-                    <a href="https://www.youtube.com/@adnan_h_joy" target="_blank"><i class="fa-brands fa-youtube hover:text-red-600 hover:scale-150"></i></a>
-                    <a href="https://www.facebook.com/mhmzahin/" target="_blank"><i class="fa-brands fa-facebook hover:text-blue-700 hover:scale-150"></i></a>
-                    <a href="https://github.com/adnan-joy" target="_blank"><i class="fa-brands fa-github hover:text-black hover:scale-150"></i></a>
-                    <a href="https://www.linkedin.com/in/adnanjoy/" target="_blank"><i class="fa-brands fa-linkedin hover:text-blue-900 hover:scale-150"></i></a>
+                <div class="inline-flex gap-4 text-2xl">
+                    <a href="https://www.youtube.com/@adnan_h_joy" target="_blank"><i class="fa-brands fa-youtube hover:text-red-600 hover:scale-150 transition-[transform_colors]"></i></a>
+                    <a href="https://www.facebook.com/mhmzahin/" target="_blank"><i class="fa-brands fa-facebook hover:text-blue-500 hover:scale-150 transition-[transform_colors]"></i></a>
+                    <a href="https://github.com/adnan-joy" target="_blank"><i class="fa-brands fa-github hover:text-black hover:scale-150 transition-[transform_colors]"></i></a>
+                    <a href="https://www.linkedin.com/in/adnanjoy/" target="_blank"><i class="fa-brands fa-linkedin hover:text-blue-800 hover:scale-150 transition-[transform_colors]"></i></a>
                 </div>
             </div>
 
